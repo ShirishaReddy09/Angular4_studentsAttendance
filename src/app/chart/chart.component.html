@@ -1,0 +1,20 @@
+<div class="card border-left-primary shadow">
+    <div class="card-body">
+        <h6>Attendance Chart for {{monthName}}</h6>
+        <!-- Used ngIf due to delay in the fetching of data from API , empty chart was being displayed -->
+        <!-- This Check solved this problem as this will run only when length of attendanceData will be greater than 0 , it means data is fetched from API -->
+        <div *ngIf="attendanceData.length>0">               
+            <ngx-charts-bar-vertical
+                [view]="view"
+                [results]="attendanceData"
+                [gradient]="gradient"
+                [xAxis]="showXAxis"
+                [yAxis]="showYAxis"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="yAxisLabel">
+            </ngx-charts-bar-vertical>
+        </div>
+    </div>
+</div>
